@@ -266,7 +266,7 @@
 				var div = L.DomUtil.create('div', 'legend'); 
 				var grades = [645, 2156, 2702, 6092];
 				
-				div.innerHTML = '<h5><b>Gross Inflow</b></h5>';
+				div.innerHTML = '<h5><b>Gross Outflow</b></h5>';
 
 				for (var i = 0; i < grades.length; i++) {
 					div.innerHTML +=
@@ -281,20 +281,20 @@
 			var titleDiv = L.control({position: 'topright'});
 			titleDiv.onAdd = function (map){
 				var titleText = L.DomUtil.create('div', 'titleDiv');
-				titleText.innerHTML = '<h4>Top 10 gross outflow migration to Cook County</h4>';
+				titleText.innerHTML = '<h4>Top 10 gross outflow migration from Cook County</h4>';
 				return titleText;
 			};
 			titleDiv.addTo(map);
 			// Removing the legend when the layer is removed
 			map.on('overlayremove', function(eventLayer){
-			  if (eventLayer.name == 'Annual Crimes'){ // We use the key/display name to refer to the layer
+			  if (eventLayer.name == 'Population'){ // We use the key/display name to refer to the layer
 				map.removeControl(legend); // legend is the variable name of the layer legend
 			  }
 			});
 
 			// Adding the legend when the layer is added
 			map.on('overlayadd', function(eventLayer){
-			  if (eventLayer.name == 'Annual Crimes'){
+			  if (eventLayer.name == 'Population'){
 				legend.addTo(map);
 			  }
 			});
